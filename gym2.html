@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMA - Twoja Siłownia</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <h1>FORMA<span>GYM</span></h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Start</a></li>
+                <li><a href="#oferta">Oferta</a></li>
+                <li><a href="#plan-treningowy">Plan treningowy</a></li>
+                <li><a href="#cennik">Cennik</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="gallery-section">
+            <header>
+                <h2>Nasze Wnętrza</h2>
+                <p>Zobacz, w jakich warunkach będziesz budować swoją formę</p>
+            </header>
+            <div class="carousel-container">
+                <button class="nav-btn prev" aria-label="Poprzednie zdjęcie">&#10094;</button>
+                <div class="carousel">
+                    <div class="slide prev-slide"><img src="zad1.png" alt="Nowoczesna recepcja siłowni"></div>
+                    <div class="slide active"><img src="zdj2.png" alt="Strefa cardio z bieżniami"></div>
+                    <div class="slide next-slide"><img src="zdj3.png" alt="Strefa wolnych ciężarów i hantli"></div>
+                    <div class="slide"><img src="zdj4.png" alt="Strefa treningu funkcjonalnego"></div>
+                    <div class="slide"><img src="zdj5.png" alt="Maszyny do treningu siłowego"></div>
+                    <div class="slide"><img src="zdj6.png" alt="Sala do zajęć fitness i grupowych"></div>
+                    <div class="slide"><img src="zdj7.png" alt="Nowoczesna szatnia z szafkami"></div>
+                </div>
+                <button class="nav-btn next" aria-label="Następne zdjęcie">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="oferta" class="offer-section">
+            <header>
+                <h2>Co oferujemy?</h2>
+                <p>Dopasuj trening do swoich celów</p><br>
+            </header>
+            <div class="offer-grid">
+                <article class="offer-card">
+                    <h3>Trening Personalny</h3>
+                    <p>Indywidualne podejście i plan skrojony pod Twoje potrzeby pod okiem profesjonalisty.</p>
+                </article>
+                <article class="offer-card">
+                    <h3>Zajęcia Grupowe</h3>
+                    <p>Energia grupy i motywacja prowadzącego. Crossfit, Yoga, Zumba i wiele innych.</p>
+                </article>
+                <article class="offer-card">
+                    <h3>Plany Dietetyczne</h3>
+                    <p>Twoja forma buduje się w kuchni. Pomożemy Ci zadbać o zdrowe nawyki żywieniowe.</p>
+                </article>
+            </div>
+        </section>
+
+
+<section id="plan-treningowy" class="training-plan-section">
+    <header>
+        <h2>Stwórz swój Plan</h2>
+        <p>Podaj nam kilka szczegółów, a my zajmiemy się resztą.</p>
+    </header>
+
+    <form class="plan-form">
+        <div class="form-group">
+            <h3>Twój Poziom</h3>
+            <div class="radio-group">
+                <label class="radio-container">
+                    <input type="radio" name="level" value="beginner" checked>
+                    <span class="custom-radio"></span> Początkujący
+                </label>
+                <label class="radio-container">
+                    <input type="radio" name="level" value="intermediate">
+                    <span class="custom-radio"></span> Średnio-zaawansowany
+                </label>
+                <label class="radio-container">
+                    <input type="radio" name="level" value="advanced">
+                    <span class="custom-radio"></span> Zaawansowany
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Co chcesz ćwiczyć?</h3>
+            <div class="checkbox-grid">
+                <label class="check-container"><input type="checkbox" value="shoulders"> <span>Barki</span></label>
+                <label class="check-container"><input type="checkbox" value="chest"> <span>Klatka piersiowa</span></label>
+                <label class="check-container"><input type="checkbox" value="back"> <span>Plecy</span></label>
+                <label class="check-container"><input type="checkbox" value="biceps"> <span>Biceps</span></label>
+                <label class="check-container"><input type="checkbox" value="triceps"> <span>Triceps</span></label>
+                <label class="check-container"><input type="checkbox" value="legs"> <span>Nogi</span></label>
+                <label class="check-container"><input type="checkbox" value="glutes"> <span>Pośladki</span></label>
+                <label class="check-container"><input type="checkbox" value="abs"> <span>Brzuch</span></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Ile razy w tygodniu możesz ćwiczyć?</h3>
+            <select class="form-select" name="frequency">
+                <option value="1">1-2 razy</option>
+                <option value="3" selected>3-4 razy</option>
+                <option value="5">5 i więcej</option>
+            </select>
+        </div>
+
+        <button type="button" class="btn-submit">Generuj Plan</button>
+    </form>
+</section>
+
+        <section id="cennik" class="pricing-section">
+            <header>
+                <h2>Cennik karnetów</h2>
+            </header>
+            <div class="pricing-container">
+                <div class="price-box">
+                    <h3>Dzień</h3>
+                    <span class="price">29 zł</span>
+                    <ul>
+                        <li>Jednorazowe wejście</li>
+                        <li>Bez limitu czasu</li>
+                        <li>Dostęp do wszystkich stref</li>
+                    </ul>
+                    <a href="#" class="btn-buy">Wybierz</a>
+                </div>
+                <div class="price-box featured">
+                    <h3>Miesiąc</h3>
+                    <span class="price">149 zł</span>
+                    <ul>
+                        <li>Wstęp 24/7</li>
+                        <li>Darmowa konsultacja</li>
+                        <li>Zajęcia grupowe w cenie</li>
+                    </ul>
+                    <a href="#" class="btn-buy">Wybierz</a>
+                </div>
+                <div class="price-box">
+                    <h3>Rok</h3>
+                    <span class="price">1200 zł</span>
+                    <ul>
+                        <li>Najniższa cena za miesiąc</li>
+                        <li>Zamrożenie karnetu (30 dni)</li>
+                        <li>Pakiet startowy gratis</li>
+                    </ul>
+                    <a href="#" class="btn-buy">Wybierz</a>
+                </div>
+            </div>
+
+
+        </section>
+<section id="kontakt" class="contact-section">
+    <header>
+        <h2>Kontakt</h2>
+        <p>Masz pytania? Napisz do nas lub odwiedź nas osobiście!</p>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="info-item">
+                <h3>Adres</h3>
+                <p>ul. Sportowa 12, 00-001 Warszawa</p>
+            </div>
+            <div class="info-item">
+                <h3>Telefon i Email</h3>
+                <p>+48 123 456 789</p>
+                <p>kontakt@formagym.pl</p>
+            </div>
+            <div class="info-item">
+                <h3>Godziny otwarcia</h3>
+                <p>Poniedziałek - Piątek: 06:00 - 23:00</p>
+                <p>Sobota - Niedziela: 08:00 - 20:00</p>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <form class="contact-form">
+                <div class="input-group">
+                    <label for="name">Imię i Nazwisko</label>
+                    <input type="text" id="name" placeholder="Wpisz swoje dane..." required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Adres E-mail</label>
+                    <input type="email" id="email" placeholder="twoj@email.pl" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" rows="5" placeholder="W czym możemy Ci pomóc?" required></textarea>
+                </div>
+                <button type="submit" class="btn-send">Wyślij wiadomość</button>
+            </form>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="main-footer">
+        <p> Technologie internetowe - projekt FORMAGYM 2026.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+/* --- Zmienne i Reset --- */
+:root {
+    --primary: #0056b3;
+    --dark: #111;
+    --card-bg: #1e1e1e;
+    --text: #ffffff;
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* --- Nawigacja (Sticky Header) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.logo span { color: var(--primary); }
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.main-nav a:hover { color: var(--primary); }
+
+/* --- Sekcje Ogólne --- */
+section {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* --- GALERIA 3D (Poprawiona) --- */
+.carousel-container {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    position: absolute;
+    width: 600px; /* Szerokość środkowego zdjęcia */
+    height: 350px;
+    transition: var(--transition);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Środkowe zdjęcie (Główne) */
+.slide.active {
+    opacity: 1;
+    z-index: 10;
+    transform: translateX(0) scale(1.1);
+    pointer-events: auto;
+}
+
+/* Zdjęcie po lewej */
+.slide.prev-slide {
+    opacity: 0.6;
+    z-index: 5;
+    transform: translateX(-40%) scale(0.85);
+    filter: blur(2px) brightness(0.5);
+    display: block;
+}
+
+/* Zdjęcie po prawej */
+.slide.next-slide {
+    opacity: 0.6;
+    z-index: 5;
+    transform: translateX(40%) scale(0.85);
+    filter: blur(2px) brightness(0.5);
+    display: block;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.nav-btn:hover { background: white; color: var(--primary); }
+.prev { left: 50px; }
+.next { right: 50px; }
+
+/* --- OFERTA (CSS Grid) --- */
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny obok siebie */
+    gap: 30px;
+}
+
+.offer-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border-top: 5px solid var(--primary);
+    transition: var(--transition);
+}
+
+.offer-card:hover {
+    background: #252525;
+    transform: translateY(-10px);
+}
+
+.offer-card h3 {
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+/* --- CENNIK (Flexbox) --- */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-end; /* Efekt wyrównania do dołu */
+}
+
+.price-box {
+    background: var(--card-bg);
+    padding: 50px 30px;
+    border-radius: 20px;
+    width: 320px;
+    transition: var(--transition);
+}
+
+.price-box.featured {
+    border: 2px solid var(--primary);
+    padding: 70px 30px; /* Wyższy box dla wyróżnienia */
+    background: #252525;
+}
+
+.price-box .price {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+.price-box ul {
+    list-style: none;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.price-box li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.btn-buy {
+    display: block;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.btn-buy:hover { background: white; color: var(--primary); }
+
+/* --- Stopka --- */
+.main-footer {
+    padding: 40px;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+
+
+
+/* --- PLAN TRENINGOWY --- */
+.training-plan-section {
+    background-color: #151515; /* Lekko inny odcień dla oddzielenia sekcji */
+}
+
+.plan-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.form-group {
+    margin-bottom: 35px;
+}
+
+.form-group h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-left: 4px solid var(--primary);
+    padding-left: 15px;
+}
+
+/* Radio i Checkbox Styling */
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-container, .check-container {
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.radio-container:hover, .check-container:hover {
+    color: var(--primary);
+}
+
+/* Siatka dla Checkboxów */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* Stylizacja Select */
+.form-select {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.form-select:focus {
+    border-color: var(--primary);
+}
+
+/* Przycisk */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    background: white;
+    color: var(--primary);
+}
+
+
+
+/* --- KONTAKT --- */
+.contact-section {
+    background-color: var(--dark);
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.contact-info, .contact-form-wrapper {
+    flex: 1;
+}
+
+/* Stylizacja informacji */
+.info-item {
+    margin-bottom: 30px;
+}
+
+.info-item h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.info-item p {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* Stylizacja formularza */
+.contact-form {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    background: #333;
+}
+
+.btn-send {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.btn-send:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- RESPONSYWNOŚĆ (Media Queries) --- */
+
+@media (max-width: 768px) {
+    /* 1. Nawigacja - zmiana w stos pionowy */
+    .main-header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .main-nav ul {
+        margin-top: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* 2. Galeria 3D - dostosowanie wymiarów */
+    .slide {
+        width: 85%; /* Na mobile zdjęcia muszą być szersze względem ekranu */
+        height: 250px;
+    }
+
+    .slide.prev-slide { transform: translateX(-15%) scale(0.8); }
+    .slide.next-slide { transform: translateX(15%) scale(0.8); }
+    
+    .nav-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* 3. Oferta - Grid z 3 kolumn na 1 */
+    .offer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* 4. Cennik - Flexbox w pionie */
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .price-box, .price-box.featured {
+        width: 100%;
+        max-width: 350px;
+        padding: 30px 20px;
+        transform: scale(1); /* Reset powiększenia dla Premium */
+    }
+
+    /* 5. Plan Treningowy - Formularz */
+    .checkbox-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny zamiast 4 */
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* 6. Kontakt - Układ pionowy */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Dodatkowy punkt dla bardzo małych ekranów (poniżej 480px) */
+@media (max-width: 480px) {
+    .checkbox-grid {
+        grid-template-columns: 1fr; /* Wszystko w jednej linii */
+    }
+}
